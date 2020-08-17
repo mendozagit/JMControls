@@ -94,7 +94,7 @@ namespace JMcontrols
 
 
         //protected override void OnKeyPress(KeyPressEventArgs e )
-        //{
+        //{ 
         //    base.OnKeyPress(e);
         //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
         //        e.Handled = true;
