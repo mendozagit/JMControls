@@ -16,5 +16,12 @@ namespace Demo
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            decimal vl = jmTextbox1.Value;
+
+            MessageBox.Show("Decimal Value: " + vl);
+        }
     }
 }

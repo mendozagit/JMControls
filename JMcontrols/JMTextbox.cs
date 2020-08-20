@@ -35,7 +35,13 @@ namespace JMcontrols
         [DisplayName("Value"), DefaultValue(0)]
         public decimal Value
         {
-            get { return _value; }
+            get
+            {
+                if (IsNumerical)
+                    return _value;
+                else
+                    return 0;
+            }
             set { _value = value; }
         }
         private decimal _value;
@@ -53,7 +59,7 @@ namespace JMcontrols
         }
         private int _posicionesDecimales;
 
-        private bool _thousandsSeparator;
+
 
 
 
@@ -93,6 +99,20 @@ namespace JMcontrols
         }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            base.OnKeyUp(e);
+           if (IsNumerical)
+            {
+
+                var success = decimal.TryParse(Text, out decimal d);
+                if (success)
+                    _value = d;
+                else _value = 0;
+            }
+
+        }
         //protected override void OnKeyPress(KeyPressEventArgs e )
         //{ 
         //    base.OnKeyPress(e);
